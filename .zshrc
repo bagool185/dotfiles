@@ -157,7 +157,7 @@ source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ga="git add . ; git commit -am"
 alias c="clear"
-alias f="find . -name | grep -i"
+alias f="find . | grep -i"
 alias art="php artisan"
 alias artm="php artisan make:"
 
