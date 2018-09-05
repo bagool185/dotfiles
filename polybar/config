@@ -1,0 +1,307 @@
+[colors]
+
+background = #162025
+foreground = #bfbfbf
+pink = #75404b
+
+[bar/top]
+width = 100%
+height = 27
+radius = 0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color =
+
+border-size = 0
+border-color =
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "Source Code Pro Semibold:size=10;1"
+font-1 = "Font Awesome 5 Free:style=Solid:size=10;1"
+font-2 = "Font Awesome 5 Brands:size=10;1"
+
+modules-left = i3
+modules-center = pacman-updates pacaur-updates weather title
+modules-right = network temperature volume battery date powermenu 
+
+tray-position = right
+;tray-padding =
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/title]
+type = internal/xwindow
+format = <label>
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-padding = 4
+
+label = %title%
+label-maxlen = 50
+
+label-empty = Empty
+label-empty-foreground = #707880
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+label-mode-padding = 2
+label-mode-foreground = #8e6b7f
+label-mode-background = #272827
+
+label-focused = %index%
+label-focused-background = ${colors.pink}
+label-focused-foreground = #162025
+label-focused-padding = 2
+
+label-unfocused = %index%
+label-unfocused-background = #162025 
+label-unfocused-foreground = #bfbfbf
+label-unfocused-padding = 2
+
+label-visible = %index%
+label-visible-background = #162025
+label-visible-foreground = #272827
+label-visible-padding = 2
+
+label-urgent = %index%
+label-urgent-background = #FFFFFF
+label-urgent-padding = 2
+
+[module/weather]
+type = custom/script
+exec = python ~/.config/polybar/scripts/weather_script.py
+
+interval = 100
+label = %output%
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "  "
+format-prefix-foreground = ${colors.pink}
+format-underline = ${colors.pink}
+
+[module/network]
+type = internal/network
+interface = wlp6s0
+
+interval = 3.0
+
+udspeed-minwidth = 5
+
+accumulate-stats = true
+
+unknown-as-up = true
+
+format-connected = <ramp-signal> <label-connected>
+format-disconnected = <label-disconnected>
+#format-packetloss = <animation-packetloss> <label-connected>
+
+label-connected = %essid% %downspeed:9%
+label-connected-foreground = ${colors.foreground}
+
+label-disconnected = not connected
+label-disconnected-foreground = ${colors.pink}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.pink}
+
+
+[module/volume]
+type = internal/alsa
+format-volume = "<label-volume> <bar-volume>"
+
+label-volume = " "
+label-volume-foreground = ${colors.pink}
+label-muted = muted
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.pink}
+bar-volume-foreground-1 = ${colors.pink}
+bar-volume-foreground-2 = ${colors.pink}
+bar-volume-foreground-3 = ${colors.pink}
+bar-volume-foreground-4 = ${colors.pink}
+bar-volume-foreground-5 = ${colors.pink}
+bar-volume-foreground-6 = ${colors.pink}
+bar-volume-gradient = false
+bar-volume-indicator = 
+bar-volume-indicator-font = 2
+bar-volume-fill = 
+bar-volume-fill-font = 2
+bar-volume-empty = 
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground}
+format-volume-foreground = ${colors.foreground}
+format-volume-background = ${colors.background}
+
+[module/pacman-updates]
+type = custom/script
+exec = pacman -Qu | wc -l
+interval = 100
+label = Repo: %output%
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "  "
+format-prefix-foreground = ${colors.pink}
+format-underline = ${colors.pink}
+
+[module/pacaur-updates]
+type = custom/script
+exec = pacaur -Qu | wc -l
+interval = 100
+label = AUR: %output%
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "  "
+format-prefix-foreground = ${colors.pink}
+format-underline = ${colors.pink}
+
+[module/temperature]
+type = internal/temperature
+
+interval = 10
+
+thermal-zone = 0
+
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp2_input
+
+warn-temperature = 60
+
+units = true
+
+format = <ramp> <label>
+
+format-warn = <ramp> <label-warn>
+
+label =  %temperature-c%
+label-foreground = ${colors.foreground}
+
+label-warn = %temperature-c%
+label-warn-foreground = #6b1346
+
+ramp-0 = A 
+ramp-1 = B 
+ramp-2 = C 
+ramp-foreground = ${colors.pink}
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = " %Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = 
+format-foreground = #162025
+format-background = ${colors.pink}
+format-padding = 2
+
+label = %date% %time%
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = ADP1
+
+poll-interval = 5
+
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+
+format-discharging = <ramp-capacity> <label-discharging>
+
+label-charging = Charging %percentage%%
+
+label-discharging = Discharging %percentage%%
+
+label-full = Fully charged
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+
+animation-discharging-framerate = 500
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.pink}
+label-close =  cancel
+label-close-foreground = #BA2922
+label-separator = |
+label-separator-foreground = #BA2922
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-0-2 = log off
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = reboot
+
+menu-2-0 = power off
+menu-2-0-exec = poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+menu-3-0 = log off
+menu-3-0-exec = pkill -KILL -u $USER
+menu-3-1 = cancel
+menu-3-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
