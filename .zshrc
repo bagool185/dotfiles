@@ -91,13 +91,10 @@ POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=""
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon  time  dir dir_writable todo vcs )
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir dir_writable todo vcs )
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status  command_execution_time  vi_mode)
 
-POWERLEVEL9K_TIME_FOREGROUND='black'
-POWERLEVEL9K_TIME_BACKGROUND='131'
-POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %H:%M:%S}"
-POWERLEVEL9K_DIR_HOME_FOREGROUND='white'
+POWERLEVEL9K_DIR_HOME_FOREGROUND='white'	
 POWERLEVEL9K_DIR_HOME_BACKGROUND='black'
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='131'
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='black'
@@ -157,7 +154,11 @@ source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ga="git add . ; git commit -am"
 alias c="clear"
+alias cls="clear"
 alias f="find . | grep -i"
 alias art="php artisan"
 alias artm="php artisan make:"
+alias code="code --user-data-dir"
 
+
+neofetch --ascii ~/Pictures/neofetch.txt
