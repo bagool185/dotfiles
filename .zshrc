@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+  export TERM="xterm-256color"
   export ZSH="/root/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -17,7 +18,7 @@ ZSH_THEME="agnoster"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+#CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -39,7 +40,7 @@ HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+#COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -63,24 +64,34 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+  git,
+  composer,
+  npm,
+  sudo,
+  python,
+  zsh-syntax-highlighting,
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
 
 #Powerlevel9k settings
 
+# 73 greenish
+# 235 grey->black
+# 238 black
+
 POWERLEVEL9K_MODE='awesome-fontconfig'
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
-POWERLEVEL9K_TIME_FOREGROUND='168'
+POWERLEVEL9K_TIME_FOREGROUND='73'
 POWERLEVEL9K_TIME_BACKGROUND='235'
-POWERLEVEL9K_LEFT_PROMPT_FOREGROUND='168'
+POWERLEVEL9K_LEFT_PROMPT_FOREGROUND='73'
 
-POWERLEVEL9k_LEFT_PROMPT_ELEMENTS=(dir newline vcs)
+POWERLEVEL9k_LEFT_PROMPT_ELEMENTS=(dir vcs)
 
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱"
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" "
 
 
@@ -91,35 +102,55 @@ POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=""
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir dir_writable todo vcs )
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status  command_execution_time  vi_mode)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator dir dir_writable vcs )
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status todo command_execution_time virtualenv)
 
-POWERLEVEL9K_DIR_HOME_FOREGROUND='white'	
+
+# user
+POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND='black'
+POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND='73'
+POWERLEVEL9K_ROOT_ICON="\uf070"
+POWERLEVEL9K_USER_ICON="\uf09c"
+POWERLEVEL9K_SUDO_ICON="\uf09c"
+
+
+POWERLEVEL9K_DIR_HOME_FOREGROUND='73'
 POWERLEVEL9K_DIR_HOME_BACKGROUND='black'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='131'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='73'
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='black'
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='white'
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='131'
-POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND='131'
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='73'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='black'
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND='73'
 POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND='black'
-POWERLEVEL9K_TODO_FOREGROUND='black'
-POWERLEVEL9K_TODO_BACKGROUND='131'
+# TODO
+POWERLEVEL9K_TODO="echo \n '\uf859'"
+POWERLEVEL9K_TODO_FOREGROUND='73'
+POWERLEVEL9K_TODO_BACKGROUND='black'
+# VCS
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND='black'
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND='131'
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='73'
 POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='black'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='131'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='73'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='black'
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='131'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='131'
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='73'
+
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='73'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='black'
-POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='black'
-POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='131'
-POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='black'
-POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='131'
+
+POWERLEVEL9K_VIRTUALENV_FOREGROUND='black'
+POWERLEVEL9K_VIRTUALENV_BACKGROUND='73'
+
+POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='73'
+POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='black'
+POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='73'
+POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='black'
 
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_DELIMITER="."
+
 POWERLEVEL9K_STATUS_CROSS=true
+POWERLEVEL9K_STATUS_FOREGROUND='73'
+POWERLEVEL9K_STATUS_BACKGROUND='black'
 
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
@@ -157,8 +188,9 @@ alias c="clear"
 alias cls="clear"
 alias f="find . | grep -i"
 alias art="php artisan"
-alias artm="php artisan make:"
+alias artm="php artisan make"
 alias code="code --user-data-dir"
+alias g="g++ -Wall -std=c++17"
+alias todo="cat /home/bagool/todo.txt | wc -l"
 
-
-neofetch --ascii ~/Pictures/neofetch.txt
+neofetch --ascii ~/Pictures/neofetch.txt --bold off --ascii_colors 6 7 6 6 6 7
