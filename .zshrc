@@ -191,6 +191,13 @@ alias art="php artisan"
 alias artm="php artisan make"
 alias code="code --user-data-dir"
 alias g="g++ -Wall -std=c++17"
-alias todo="cat /home/bagool/todo.txt | wc -l"
+alias todo="cat /home/bagool/todo.txt | wc -l | lolcat"
+alias firefox="firejail --private firefox &"
 
 neofetch --ascii ~/Pictures/neofetch.txt --bold off --ascii_colors 6 7 6 6 6 7
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/tmp/mozilla_root0/google-cloud-sdk-225.0.0-linux-x86_64/google-cloud-sdk/path.zsh.inc' ]; then . '/tmp/mozilla_root0/google-cloud-sdk-225.0.0-linux-x86_64/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/tmp/mozilla_root0/google-cloud-sdk-225.0.0-linux-x86_64/google-cloud-sdk/completion.zsh.inc' ]; then . '/tmp/mozilla_root0/google-cloud-sdk-225.0.0-linux-x86_64/google-cloud-sdk/completion.zsh.inc'; fi
