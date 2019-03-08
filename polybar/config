@@ -2,7 +2,7 @@
 
 background = #162025
 foreground = #bfbfbf
-pink = #75404b
+greenish = #41756B
 
 [bar/top]
 width = 100%
@@ -30,8 +30,8 @@ font-1 = "Font Awesome 5 Free:style=Solid:size=10;1"
 font-2 = "Font Awesome 5 Brands:size=10;1"
 
 modules-left = i3
-modules-center = pacman-updates pacaur-updates weather title
-modules-right = network temperature volume battery date powermenu 
+modules-center = updates weather title
+modules-right = network temperature volume battery date powermenu
 
 tray-position = right
 ;tray-padding =
@@ -63,17 +63,17 @@ label-mode-foreground = #8e6b7f
 label-mode-background = #272827
 
 label-focused = %index%
-label-focused-background = ${colors.pink}
-label-focused-foreground = #162025
+label-focused-background = ${colors.greenish}
+label-focused-foreground = ${colors.background}
 label-focused-padding = 2
 
 label-unfocused = %index%
-label-unfocused-background = #162025 
+label-unfocused-background = ${colors.background}
 label-unfocused-foreground = #bfbfbf
 label-unfocused-padding = 2
 
 label-visible = %index%
-label-visible-background = #162025
+label-visible-background = ${colors.background{
 label-visible-foreground = #272827
 label-visible-padding = 2
 
@@ -90,8 +90,9 @@ label = %output%
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = "  "
-format-prefix-foreground = ${colors.pink}
-format-underline = ${colors.pink}
+format-prefix-foreground = ${colors.greenish}
+format-underline = ${colors.greenish}
+
 
 [module/network]
 type = internal/network
@@ -99,7 +100,6 @@ interface = wlp6s0
 
 interval = 3.0
 
-udspeed-minwidth = 5
 
 accumulate-stats = true
 
@@ -107,20 +107,19 @@ unknown-as-up = true
 
 format-connected = <ramp-signal> <label-connected>
 format-disconnected = <label-disconnected>
-#format-packetloss = <animation-packetloss> <label-connected>
 
-label-connected = %essid% %downspeed:9%
+label-connected = %essid%
 label-connected-foreground = ${colors.foreground}
 
 label-disconnected = not connected
-label-disconnected-foreground = ${colors.pink}
+label-disconnected-foreground = ${colors.greenish}
 
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = ${colors.pink}
+ramp-signal-foreground = ${colors.greenish}
 
 
 [module/volume]
@@ -128,16 +127,16 @@ type = internal/alsa
 format-volume = "<label-volume> <bar-volume>"
 
 label-volume = " "
-label-volume-foreground = ${colors.pink}
+label-volume-foreground = ${colors.greenish}
 label-muted = muted
 bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.pink}
-bar-volume-foreground-1 = ${colors.pink}
-bar-volume-foreground-2 = ${colors.pink}
-bar-volume-foreground-3 = ${colors.pink}
-bar-volume-foreground-4 = ${colors.pink}
-bar-volume-foreground-5 = ${colors.pink}
-bar-volume-foreground-6 = ${colors.pink}
+bar-volume-foreground-0 = ${colors.greenish}
+bar-volume-foreground-1 = ${colors.greenish}
+bar-volume-foreground-2 = ${colors.greenish}
+bar-volume-foreground-3 = ${colors.greenish}
+bar-volume-foreground-4 = ${colors.greenish}
+bar-volume-foreground-5 = ${colors.greenish}
+bar-volume-foreground-6 = ${colors.greenish}
 bar-volume-gradient = false
 bar-volume-indicator = 
 bar-volume-indicator-font = 2
@@ -149,27 +148,16 @@ bar-volume-empty-foreground = ${colors.foreground}
 format-volume-foreground = ${colors.foreground}
 format-volume-background = ${colors.background}
 
-[module/pacman-updates]
-type = custom/script
-exec = pacman -Qu | wc -l
-interval = 100
-label = Repo: %output%
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-prefix = "  "
-format-prefix-foreground = ${colors.pink}
-format-underline = ${colors.pink}
-
-[module/pacaur-updates]
+[module/updates]
 type = custom/script
 exec = pacaur -Qu | wc -l
 interval = 100
-label = AUR: %output%
+label = Updates: %output%
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = "  "
-format-prefix-foreground = ${colors.pink}
-format-underline = ${colors.pink}
+format-prefix-foreground = ${colors.greenish}
+format-underline = ${colors.greenish}
 
 [module/temperature]
 type = internal/temperature
@@ -194,10 +182,10 @@ label-foreground = ${colors.foreground}
 label-warn = %temperature-c%
 label-warn-foreground = #6b1346
 
-ramp-0 = A 
-ramp-1 = B 
-ramp-2 = C 
-ramp-foreground = ${colors.pink}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.greenish}
 
 [module/date]
 type = internal/date
@@ -211,7 +199,7 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-foreground = #162025
-format-background = ${colors.pink}
+format-background = ${colors.greenish}
 format-padding = 2
 
 label = %date% %time%
@@ -270,7 +258,7 @@ expand-right = true
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${colors.pink}
+label-open-foreground = ${colors.greenish}
 label-close =  cancel
 label-close-foreground = #BA2922
 label-separator = |
