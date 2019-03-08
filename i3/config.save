@@ -1,4 +1,6 @@
-###########################################################################
+qqna
+n
+Q###########################################################################
 ###########################################################################
 ################       Start of all the settings          #################
 ###########################################################################
@@ -149,9 +151,6 @@ bindsym $mod+shift+d exec j4-dmenu-desktop --dmenu="dmenu -fn 'DroidSansMono:bol
 bindsym $mod+mod1+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'Inconsolata:bold:pixelsize=20S'"
 
 
-bindsym $mod + Escape exec shutdown -h now
-
-
 ################### DUAL SCREEN ######################
 
 # my current setup
@@ -184,16 +183,16 @@ bindsym $mod+ccedilla workspace 9
 bindsym $mod+agrave workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1; workspace 1
-bindsym $mod+Shift+2 move container to workspace 2; workspace 2
-bindsym $mod+Shift+3 move container to workspace 3; workspace 3
-bindsym $mod+Shift+4 move container to workspace 4; workspace 4
+bindsym $mod+Shift+ampersand move container to workspace 1; workspace 1
+bindsym $mod+Shift+eacute move container to workspace 2; workspace 2
+bindsym $mod+Shift+quotedbl move container to workspace 3; workspace 3
+bindsym $mod+Shift+apostrophe move container to workspace 4; workspace 4
 bindsym $mod+Shift+5 move container to workspace 5; workspace 5
-bindsym $mod+Shift+6 move container to workspace 6; workspace 6
-bindsym $mod+Shift+7 move container to workspace 7; workspace 7
-bindsym $mod+Shift+8 move container to workspace 8; workspace 8
-bindsym $mod+Shift+9 move container to workspace 9; workspace 9
-bindsym $mod+Shift+0 move container to workspace 10; workspace 10
+bindsym $mod+Shift+section move container to workspace 6; workspace 6
+bindsym $mod+Shift+egrave move container to workspace 7; workspace 7
+bindsym $mod+Shift+exclam move container to workspace 8; workspace 8
+bindsym $mod+Shift+ccedilla move container to workspace 9; workspace 9
+bindsym $mod+Shift+agrave move container to workspace 10; workspace 10
 
 
 ################### MOUSE ######################
@@ -214,6 +213,7 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 # bindsym button9 move left
 # bindsym button8 move right
 
+
 ################### ASSIGN ######################
 
 # Assign application to start on a specific workspace
@@ -222,7 +222,7 @@ bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 assign [class="Firefox|Vivaldi-stable|Opera"]                                       → 1
 assign [class="sublime-text|sublime_text|Sublime_text|subl|Subl|subl3|Subl3"]       → 2
 assign [class="Xed|xed|Brackets|Atom|Code"]                                         → 2
-assign [class="code"]	                                                            → 3
+assign [class="Inkscape"]                                                           → 3
 assign [class="Gimp"]                                                               → 4
 assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer"]                      → 5
 assign [class="Meld"]                                                               → 5
@@ -315,6 +315,7 @@ bindsym Mod1+Ctrl+Left workspace prev
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
+
 ################### SCREENSHOTS ######################
 
 
@@ -379,6 +380,7 @@ bindsym mod1+Down exec variety --resume
 
 ################### MODE_SYSTEM ######################
 
+
 bindsym $mod+Pause mode "$mode_system"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
@@ -407,9 +409,6 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
 
-
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 
 
 ################### BAR ######################
@@ -486,10 +485,10 @@ exec unclutter
 ################### BAR APPEARANCE ARCHIVE ######################
 #################################################################
 
-client.focused 		#bfbfbf #162025 #bfbfbf #41756a   #41756a
+client.focused 		#bfbfbf #162025 #bfbfbf #75404b #75404b
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #1F1F1F #1F1F1F #1F1F1F #1F1F1F   #1F1F1F
-client.urgent           #2f343a #96251f #ffffff #96251f   #96251f
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background #ffffff
@@ -505,7 +504,7 @@ client.background #ffffff
 # want it
 #packer i3-gaps-next-git --noedit
 
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 5
 gaps inner 20 
 gaps outer 5
 #smart_gaps on
@@ -595,15 +594,31 @@ for_window [class="Thunar"] focus
 bindsym $mod+Shift+Return exec nemo --no-desktop; workspace 8;focus
 bindsym control+mod1+b exec nemo --no-desktop;workspace 8;focus
 
+# USER APPLICATIONS TO START AT BOOT
+
+#sublime-text
+#exec subl
+#exec subl3
+
 #Authentication dialog
 
 #arch budgie
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
+#Linux Mint^
+#exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
+# update
+
+#Linux Mint
+#exec mintupdate-launcher
+
 # Arch
 exec pamac-tray
 
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+# bluetooth
+#exec blueberry-tray
+#exec --no-startup-id blueman-applet
 
 # network
 #antergos
@@ -617,4 +632,6 @@ exec --no-startup-id feh --bg-fill /usr/share/backgrounds/bg.jpg
 exec --no-startup-id pulseaudio -D
 #^exec --no-startup-id sh ~/.config/conky/startup.sh
 exec --no-startup-id redshift -c ~/.config/redshift.conf
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+exec --no-startup-id evolution
 
