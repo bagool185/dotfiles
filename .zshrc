@@ -1,6 +1,6 @@
 export ZSH="/home/bagool/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="apple"
 
 
 HYPHEN_INSENSITIVE="true"
@@ -30,8 +30,9 @@ alias gll='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn
 alias gc="git commit -m"
 alias gd='git diff'
 alias gds='git diff --stat'
-alias gco=git checkout
+alias gco='git checkout'
 alias gpu="git push -u origin HEAD"
+alias last='git diff HEAD~1'
 # display branches sorted by last modified
 alias gb="git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
 # hopefully not gonna be used lmao
@@ -44,6 +45,15 @@ alias claer=clear
 alias rf="find . -name"
 
 alias dev="cd /mnt/c/Dev"
+alias zsh="code /home/bagool/.zshrc"
+
+# ubuntu
+function housekeeping() 
+{
+    sudo apt update 
+    sudo apt upgrade 
+    sudo apt autoremove
+} 
 
 # windows
 
