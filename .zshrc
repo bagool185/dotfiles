@@ -45,7 +45,18 @@ alias claer=clear
 alias rf="find . -name"
 
 alias dev="cd /mnt/c/Dev"
-alias zsh="code /home/bagool/.zshrc"
+alias zsh="code ~/.zshrc"
+
+alias findingdory="grep --include=\*.cs -rnw . -e"
+
+function update_zshrc()
+{
+    cd ~/dotfiles 
+    cp ~/.zshrc . 
+    git add -A
+    git commit -m "Updates .zshrc"
+    git push
+}
 
 # ubuntu
 function housekeeping() 
