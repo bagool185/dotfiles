@@ -47,7 +47,7 @@ alias rf="find . -name"
 alias dev="cd /mnt/c/Dev"
 alias zsh="code ~/.zshrc"
 
-alias findingdory="grep --include=\*.cs -rnw . -ie"
+alias findingdory="grep --color=always --include=\*.cs -rnw . -ie"
 
 function update_zshrc()
 {
@@ -56,6 +56,12 @@ function update_zshrc()
     git add -A
     git commit -m "Updates .zshrc"
     git push
+}
+
+function get_todos()
+{
+    dev
+    findingdory "TODO" > ~/todos &
 }
 
 # ubuntu
