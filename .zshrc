@@ -51,11 +51,12 @@ alias findingdory="grep --color=always --include=\*.cs -rnw . -ie"
 
 function update_zshrc()
 {
-    cd ~/dotfiles 
+    cd ~/dotfiles
     cp ~/.zshrc . 
     git add -A
     git commit -m "Updates .zshrc"
     git push
+    cd -
 }
 
 function get_todos()
