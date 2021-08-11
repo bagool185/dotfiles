@@ -40,6 +40,13 @@ alias yolo="git add -A && git commit -am"
 alias reset_file="git checkout HEAD --"
 alias merged_branches_begone="git branch --merged | egrep -v '(^\*|master|main|dev)' | xargs git branch -d"
 
+function clean_repo()
+{
+    git fetch
+    git pull
+    merged_branches_begone    
+}
+
 # bash
 # NOTE: need to install bat
 alias cat=bat
