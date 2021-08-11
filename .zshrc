@@ -37,8 +37,11 @@ alias last='git diff HEAD~1'
 alias gb="git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
 # hopefully not gonna be used lmao
 alias yolo="git add -A && git commit -am"
+alias reset_file="git checkout HEAD --"
 
 # bash
+# NOTE: need to install bat
+alias cat=bat
 alias c=clear
 alias cls=clear
 alias claer=clear
@@ -49,6 +52,7 @@ alias zsh="code ~/.zshrc"
 
 alias findingdory="grep --color=always --include=\*.cs -rnw . -ie"
 
+# TODO: add optional parameter for commit message	
 function update_zshrc()
 {
     cd ~/dotfiles
@@ -79,6 +83,7 @@ alias here="explorer.exe ."
 alias start="cmd.exe /C start"
 
 # searches recursively for a VS .sln file and runs the first match
+# TODO: add optional parameter for the starting search path
 function open_vs() 
 {
     solution_path=$(find . -name "*.sln" -print -quit 2>/dev/null)
