@@ -38,6 +38,7 @@ alias gb="git for-each-ref --sort='-authordate' --format='%(authordate)%09%(obje
 # hopefully not gonna be used lmao
 alias yolo="git add -A && git commit -am"
 alias reset_file="git checkout HEAD --"
+alias merged_branches_begone="git branch --merged | egrep -v '(^\*|master|main|dev)' | xargs git branch -d"
 
 # bash
 # NOTE: need to install bat
@@ -67,6 +68,12 @@ function get_todos()
 {
     dev
     findingdory "TODO" > ~/todos &
+}
+
+function reset_source()
+{
+    source ~/.zshrc
+    cd -
 }
 
 # ubuntu
