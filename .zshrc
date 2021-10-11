@@ -56,9 +56,17 @@ alias claer=clear
 alias rf="find . -name"
 
 alias dev="cd /mnt/c/Dev"
-alias zsh="code ~/.zshrc"
 
 alias findingdory="grep --color=always --include=\*.cs -rnw . -ie"
+
+alias todo="code ~/.todo"
+
+function zsh()
+{
+    cd ~/
+    code .zshrc
+    cd -
+}
 
 # TODO: add optional parameter for commit message	
 function update_zshrc()
@@ -109,6 +117,8 @@ function open_vs()
         echo "No solution file found"
     fi
 }
+
+alias get_app_settings="func azure functionapp" 
 
 alias vs=open_vs
 
