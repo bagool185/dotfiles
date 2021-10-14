@@ -64,7 +64,7 @@ alias todo="code ~/.todo"
 function zsh()
 {
     cd ~/
-    code .zshrc
+    code ".zshrc &"
     cd -
 }
 
@@ -120,7 +120,7 @@ function open_vs()
 
 alias get_app_settings="func azure functionapp" 
 
-alias vs=open_vs
+alias vs="open_vs &"
 
 # auto jump thangs
 [[ -s /home/bagool/.autojump/etc/profile.d/autojump.sh ]] && source /home/bagool/.autojump/etc/profile.d/autojump.sh
