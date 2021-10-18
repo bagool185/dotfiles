@@ -64,7 +64,7 @@ alias todo="code ~/.todo"
 function zsh()
 {
     cd ~/
-    code ".zshrc &"
+    code ".zshrc" &
     cd -
 }
 
@@ -118,7 +118,7 @@ function open_vs()
     fi
 }
 
-alias get_app_settings="func azure functionapp" 
+alias get_app_settings="func azure functionapp fetch-app-settings" 
 
 alias vs="open_vs &"
 
