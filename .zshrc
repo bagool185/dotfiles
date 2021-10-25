@@ -59,7 +59,7 @@ alias dev="cd /mnt/c/Dev"
 
 alias findingdory="grep --color=always --include=\*.cs -rnw . -ie"
 
-alias todo="code ~/.todo"
+alias todo="code ~/todo.md"
 
 function zsh()
 {
